@@ -1,0 +1,160 @@
+{
+  "_comment": "MASTER PIPELINE CONFIG — edit this file only. No code changes needed.",
+
+  "llm": {
+    "provider": "claude",
+    "model": {
+      "claude":  "claude-opus-4-6",
+      "openai":  "gpt-4o",
+      "gemini":  "gemini-1.5-pro"
+    },
+    "max_tokens": 8192,
+    "temperature": 0.7
+  },
+
+  "search": {
+    "provider": "google",
+    "max_results": 10,
+    "top_pages_to_fetch": 6
+  },
+
+  "voice": {
+    "provider": "elevenlabs",
+    "model": {
+      "elevenlabs": "eleven_turbo_v2_5",
+      "openai_tts": "tts-1-hd",
+      "azure":      "neural"
+    },
+    "settings": {
+      "elevenlabs": {
+        "stability":          0.5,
+        "similarity_boost":   0.75,
+        "style":              0.0,
+        "use_speaker_boost":  true
+      },
+      "openai_tts": {
+        "voice_name": "onyx",
+        "speed":      1.0
+      },
+      "azure": {
+        "voice_name": "en-US-GuyNeural",
+        "rate":       "+0%",
+        "pitch":      "+0Hz"
+      }
+    }
+  },
+
+  "script": {
+    "target_minutes":  12,
+    "words_per_minute": 150,
+    "persona": "tech_enthusiast",
+    "personas": {
+      "tech_enthusiast": {
+        "tone":        "energetic and insightful",
+        "audience":    "tech-savvy viewers aged 20-40",
+        "style":       "conversational with technical depth",
+        "opener_hook": "start with why this matters right now"
+      },
+      "educator": {
+        "tone":        "calm, clear and methodical",
+        "audience":    "general audience curious about technology",
+        "style":       "step-by-step explanations with analogies",
+        "opener_hook": "start with a relatable real-world scenario"
+      },
+      "hype": {
+        "tone":        "excited and punchy",
+        "audience":    "early adopters and tech enthusiasts",
+        "style":       "short sentences, big claims, lots of energy",
+        "opener_hook": "start with the most shocking fact or number"
+      },
+      "analyst": {
+        "tone":        "measured, data-driven and balanced",
+        "audience":    "professionals and decision-makers",
+        "style":       "compare, contrast, and conclude with implications",
+        "opener_hook": "start with the strategic significance"
+      }
+    },
+    "sections": {
+      "min": 6,
+      "max": 9,
+      "required": ["intro", "conclusion"],
+      "allowed_types": ["intro", "main", "demo", "deep_dive", "comparison", "conclusion"]
+    }
+  },
+
+  "video": {
+    "style": "dark_tech",
+    "styles": {
+      "dark_tech": {
+        "canvas":            { "width": 1920, "height": 1080 },
+        "fps":               30,
+        "background_colour": "#0F1117",
+        "accent_colours":    ["#4A9EFF", "#FF6B35", "#00C896", "#9B59B6"],
+        "font":              "DejaVuSans-Bold",
+        "title_card_layout": "left_accent_bar",
+        "ken_burns":         true,
+        "ken_burns_zoom":    0.0004
+      },
+      "minimal_white": {
+        "canvas":            { "width": 1920, "height": 1080 },
+        "fps":               30,
+        "background_colour": "#FFFFFF",
+        "accent_colours":    ["#1A1A2E", "#E94560", "#0F3460", "#533483"],
+        "font":              "DejaVuSans-Bold",
+        "title_card_layout": "bottom_bar",
+        "ken_burns":         false,
+        "ken_burns_zoom":    0
+      },
+      "news_room": {
+        "canvas":            { "width": 1920, "height": 1080 },
+        "fps":               30,
+        "background_colour": "#1C1C1C",
+        "accent_colours":    ["#FF0000", "#FFFFFF", "#FFD700", "#00BFFF"],
+        "font":              "DejaVuSans-Bold",
+        "title_card_layout": "full_overlay",
+        "ken_burns":         true,
+        "ken_burns_zoom":    0.0002
+      }
+    },
+    "transitions": {
+      "type":     "fade",
+      "duration": 0.5,
+      "allowed":  ["fade", "slideleft", "slideright", "wipeleft", "dissolve"]
+    },
+    "screenshot_display_duration": 8,
+    "background_music": {
+      "enabled":      false,
+      "path":         "",
+      "volume":       0.08,
+      "fade_in_sec":  2,
+      "fade_out_sec": 3
+    }
+  },
+
+  "output": {
+    "dir":          "./output",
+    "cache_dir":    "./cache",
+    "temp_dir":     "./temp",
+    "video_format": "mp4",
+    "video_codec":  "libx264",
+    "audio_codec":  "aac",
+    "audio_bitrate": "192k",
+    "preset":       "fast"
+  },
+
+  "metadata": {
+    "category":       "Science & Technology",
+    "language":       "en",
+    "default_tags":   ["AI", "technology", "artificial intelligence"],
+    "max_tags":       20,
+    "title_max_chars": 100,
+    "description_words": { "min": 300, "max": 500 }
+  },
+
+  "quality_checks": {
+    "enabled":             true,
+    "max_sync_drift_sec":  2.0,
+    "min_visual_assets":   3,
+    "abort_on_tts_failure": true
+  }
+}

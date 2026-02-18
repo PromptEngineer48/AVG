@@ -1,0 +1,16 @@
+{
+  "_comment": "Per-topic override. Any key here overrides pipeline.json for this topic only.",
+  "_example": "Run with: python -m pipeline.main generate --config topics/claude4_launch.json",
+
+  "topic": "Claude 4 just launched by Anthropic",
+
+  "overrides": {
+    "llm.provider":              "claude",
+    "script.target_minutes":     15,
+    "script.persona":            "hype",
+    "video.style":               "dark_tech",
+    "video.transitions.type":    "slideleft",
+    "voice.provider":            "elevenlabs",
+    "output.dir":                "./output/claude4"
+  }
+}
