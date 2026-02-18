@@ -20,6 +20,7 @@ That's it. No Python editing required.
 
 ```bash
 # 1. Install
+apt-get update && apt-get upgrade -y
 pip install -r requirements.txt
 playwright install chromium && playwright install-deps chromium
 sudo apt-get install ffmpeg fonts-dejavu-core
